@@ -1,0 +1,18 @@
+.icon{
+    padding:0 14px;
+  }
+  .spacer{
+    flex:1 1 auto;
+  }
+  mat-toolbar{
+    width:100%!important;
+  }
+  .circular{
+    border-radius:50%
+  }
+  .thumbnail{
+    position: center;
+    display:block;
+    margin: auto;
+  }
+  

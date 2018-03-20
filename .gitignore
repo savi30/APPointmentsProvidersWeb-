@@ -1,5 +1,12 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+/functions/node_modules
+.firebaserc
+
+/environments/environment.prod.ts
+/environments/environment.ts
+
+
 # compiled output
 /dist
 /dist-server

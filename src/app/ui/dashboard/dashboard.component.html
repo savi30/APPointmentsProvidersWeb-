@@ -1,1 +1,10 @@
-<app-appointments-list></app-appointments-list>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened="true" class="sidebar">
+       <p><button mat-button>Profile</button></p>
+       <p><button mat-button>Pending requests</button></p>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-top-nav></app-top-nav>
+        <app-appointments-list></app-appointments-list>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,6 +1,5 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>APPointments</span>
     <span class="spacer"></span>
     <button mat-button routerLink="">Home</button>
     <div *ngIf="auth.user | async; then authenticated else guest"></div>

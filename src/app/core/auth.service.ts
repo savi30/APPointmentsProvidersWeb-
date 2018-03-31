@@ -71,7 +71,8 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       photoURL: user.photoURL,
-      displayName: user.displayName
+      displayName: user.displayName,
+      role:200
     }
   }
 

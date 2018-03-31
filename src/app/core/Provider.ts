@@ -3,4 +3,5 @@ export interface Provider{
     displayName:string;
     email:string;
     photoURL:string;
+    role:number;
 }

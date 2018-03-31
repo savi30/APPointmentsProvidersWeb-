@@ -14,13 +14,14 @@ export class AppointmentsListComponent implements OnInit {
   isListLoading=true;
   subscription:Subscription;
 
-  constructor(private appointmentsService:AppointmentsService) { }
-
-  ngOnInit() {
-    this.getAppointmentList();
-    this.subscription  = this.appointments.subscribe(()=>{
+  constructor(private appointmentsService:AppointmentsService) {
+    this.appointments = this.appointmentsService.getAppointmentsList()
+    this.subscription = this.appointmentsService.getAppointmentsList().subscribe(()=>{
       this.isListLoading = false;
     });
+   }
+
+  ngOnInit() {
   }
 
   ngOnDestroy(){

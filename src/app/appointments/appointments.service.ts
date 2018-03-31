@@ -7,6 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { AuthService } from '../core/auth.service';
 import { Provider } from '../core/Provider';
+import { filter } from 'rxjs/operator/filter';
 
 @Injectable()
 export class AppointmentsService {
@@ -17,22 +18,22 @@ export class AppointmentsService {
 
   private appointmentsCollection: AngularFirestoreCollection<Appointment>;
   private appointments : Observable<Appointment[]>;
+  private filteredAppointments: Observable<Appointment[]>;
 
   constructor(private db:AngularFirestore, private auth:AuthService) { 
-    this.appointments = auth.user.switchMap((user)=>{
+  }
+
+  getAppointmentsList(query:string):Observable<Appointment[]>{
+    return this.auth.user.switchMap((user)=>{
       if(user){
           this.appointmentsCollection = this.db.collection(this.basePath, ref =>{
-            return ref.where("providerID","==",user.uid);
+            return ref.where("providerID","==",user.uid).where("status","==",query);
           });
-          return this.appointments = this.appointmentsCollection.valueChanges();
+          return this.appointmentsCollection.valueChanges();
       }else{
           return Observable.of(null);
       }
     })
-  }
-
-  getAppointmentsList(){
-      return this.appointments;
   }
   getAppointment(id:string):Observable<Appointment | null>{
     const appointmentPath = `${this.basePath}/${id}`;

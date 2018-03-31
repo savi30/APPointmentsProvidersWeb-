@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Appointment } from '../Appointment';
+import { Component, OnInit, Input } from '@angular/core';
+import { Appointment} from '../Appointment';
 import { Observable, Subscription } from 'rxjs';
 import { AppointmentsService } from '../appointments.service';
 
@@ -15,8 +15,8 @@ export class AppointmentsListComponent implements OnInit {
   subscription:Subscription;
 
   constructor(private appointmentsService:AppointmentsService) {
-    this.appointments = this.appointmentsService.getAppointmentsList()
-    this.subscription = this.appointmentsService.getAppointmentsList().subscribe(()=>{
+    this.appointments = this.appointmentsService.getAppointmentsList("confirmed");
+    this.subscription = this.appointments.subscribe(()=>{
       this.isListLoading = false;
     });
    }
@@ -27,9 +27,4 @@ export class AppointmentsListComponent implements OnInit {
   ngOnDestroy(){
     this.subscription.unsubscribe();
   }
-
-  getAppointmentList() {
-    this.appointments = this.appointmentsService.getAppointmentsList();
-  }
-
 }

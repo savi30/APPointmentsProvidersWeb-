@@ -10,20 +10,24 @@ import { CoreModule } from './core/core.module';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment.prod';
 import { DashboardComponent } from './ui/dashboard/dashboard.component';
+import { SideNavComponent } from './ui/side-nav/side-nav.component';
+import { AppointmentsModule } from './appointments/appointments.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavComponent,
-    DashboardComponent
+    DashboardComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AppRoutingModule,
     MaterialModule,
-    CoreModule
+    CoreModule,
+    AppointmentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,15 @@
 <mat-toolbar class="nav">
   <mat-toolbar-row >
     <span class="spacer"></span>
-    <mat-icon class="nav-item">notifications</mat-icon>
-    <div class="nav-item" *ngIf="auth.user | async; then authenticated else guest"></div>
+    <span matTooltip="Notifications">
+      <mat-icon class="icon">notifications</mat-icon>
+    </span>
+    <div  *ngIf="auth.user | async; then authenticated else guest"></div>
   </mat-toolbar-row>
 </mat-toolbar>
 <ng-template #authenticated>
       <span  *ngIf="auth.user | async as user" [matMenuTriggerFor]="menu">
-        <img [src]="user.photoURL" width="30px" height="30px"  class="circular thumbnail" >
+        <img [src]="user.photoURL" width="30px" height="30px"  class="icon circular thumbnail" >
       </span>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="auth.signOut()">

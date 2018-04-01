@@ -12,7 +12,7 @@ const homeRoutes:Routes = [
     component:HomeComponent,
     children:[
       {
-        path:'dashboard', 
+        path:'', 
         component:DashboardComponent,
         children:[
           {

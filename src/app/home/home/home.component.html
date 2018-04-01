@@ -1,2 +1,16 @@
-<app-top-nav></app-top-nav>
-<router-outlet></router-outlet>
+<div class="container" [class.is-mobile]="isMobile">
+    <app-top-nav></app-top-nav>
+  
+    <mat-sidenav-container class="sidenav-container"
+                           [style.marginTop.px]="isMobile ? 56 : 0">
+      <mat-sidenav #snav class="sidebar" [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'"
+                   [fixedInViewport]="isMobile" fixedTopGap="56">
+        <button mat-raised-button>smt</button>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

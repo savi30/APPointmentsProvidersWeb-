@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../../core/auth.service';
+import { AuthenticationService } from '../../authentication/authentication.service';
 
 @Component({
   selector: 'app-top-nav',
@@ -8,7 +8,7 @@ import { AuthService } from '../../core/auth.service';
 })
 export class TopNavComponent implements OnInit {
 
-  constructor(public auth:AuthService) { }
+  constructor(public auth:AuthenticationService) { }
 
   ngOnInit() {
   }

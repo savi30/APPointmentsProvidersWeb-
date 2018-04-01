@@ -1,6 +1,0 @@
-<div *ngFor="let appointment of appointments | async">
-    <app-appointment-detail [appointment] = 'appointment'></app-appointment-detail>
-  </div>
-  <div *ngIf="isListLoading">
-    <app-loading-spinner></app-loading-spinner>
-  </div>

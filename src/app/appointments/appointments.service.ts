@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-
 import * as firebase from 'firebase/app';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Appointment } from './Appointment';
 import { Observable, Subscription } from 'rxjs';
 import 'rxjs/add/operator/map';
-import { AuthService } from '../core/auth.service';
 import { Provider } from '../core/Provider';
 import { filter } from 'rxjs/operator/filter';
 import { merge } from 'rxjs/operator/merge';
+import { Appointment } from '../core/Appointment';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Injectable()
 export class AppointmentsService {
@@ -19,14 +18,17 @@ export class AppointmentsService {
   private appointments : Observable<Appointment[]>;
   private filteredAppointments: Observable<Appointment[]>;
 
-  constructor(private db:AngularFirestore, private auth:AuthService) { 
+  constructor(private db:AngularFirestore, private auth:AuthenticationService) { 
   }
 
-  getAppointmentsList(query:string):Observable<Appointment[]>{
+  getAppointmentsList(query:string = null):Observable<Appointment[]>{
     return this.auth.user.switchMap((user)=>{
       if(user){
           this.appointmentsCollection = this.db.collection(this.basePath, ref =>{
-            return ref.where("providerID","==",user.uid).where("status","==",query);
+            if(query){
+              return ref.where("providerID","==",user.uid).where("status","==",query);
+            }
+            return ref.where("providerID","==",user.uid);
           });
           return this.appointmentsCollection.valueChanges();
       }else{

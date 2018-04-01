@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Appointment } from '../Appointment';
 import { AppointmentsService } from '../appointments.service';
 import { AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Appointment } from '../../core/Appointment';
 
 @Component({
   selector: 'app-appointment-detail',

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Appointment} from '../Appointment';
+import { Appointment} from '../../core/Appointment';
 import { Observable, Subscription } from 'rxjs';
 import { AppointmentsService } from '../appointments.service';
 
@@ -15,7 +15,7 @@ export class AppointmentsListComponent implements OnInit {
   subscription:Subscription;
 
   constructor(private appointmentsService:AppointmentsService) {
-    this.appointments = this.appointmentsService.getAppointmentsList("confirmed");
+    this.appointments = this.appointmentsService.getAppointmentsList();
     this.subscription = this.appointments.subscribe(()=>{
       this.isListLoading = false;
     });

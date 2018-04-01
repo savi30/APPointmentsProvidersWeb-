@@ -8,13 +8,12 @@ import 'rxjs/add/operator/map';
 import { AuthService } from '../core/auth.service';
 import { Provider } from '../core/Provider';
 import { filter } from 'rxjs/operator/filter';
+import { merge } from 'rxjs/operator/merge';
 
 @Injectable()
 export class AppointmentsService {
 
   private basePath = "/appointments";
-  private user:Provider;
-  private subscription:Subscription;
 
   private appointmentsCollection: AngularFirestoreCollection<Appointment>;
   private appointments : Observable<Appointment[]>;
@@ -39,6 +38,17 @@ export class AppointmentsService {
     const appointmentPath = `${this.basePath}/${id}`;
     const category = this.db.doc(appointmentPath).valueChanges() as Observable<Appointment | null>;
     return category;
+  }
+
+  acceptAppointment(id:string){
+    const docRef: AngularFirestoreDocument<any> = this.db.doc(`appointments/${id}`);
+    docRef.set({status:"confirmed"},{
+        merge:true
+      });
+  }
+
+  rejectAppointment(){
+
   }
 
 }

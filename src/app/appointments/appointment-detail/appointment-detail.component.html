@@ -1,8 +1,17 @@
-<mat-card>
+<mat-card class="appointment-card">
 <mat-card-header>
-  'Client: '{{appointment.clientID || 'no client id for some reason'}}
+  Client: {{appointment.clientID || 'no client id for some reason'}}
+  Data: {{appointment.date}}
 </mat-card-header>
 <mat-card-content>
   {{appointment.status}}
 </mat-card-content>
+<mat-card-actions>
+  <button (click)="acceptAppointment()" mat-icon-button *ngIf="appointment.status === 'pending'">
+    <mat-icon>check</mat-icon>
+  </button>
+  <button mat-icon-button (click)="rejectAppointment()">
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-card-actions>
 </mat-card>

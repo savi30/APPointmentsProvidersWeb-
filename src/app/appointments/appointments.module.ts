@@ -5,6 +5,7 @@ import { AppointmentDetailComponent } from './appointment-detail/appointment-det
 import { AppointmentsListComponent } from './appointments-list/appointments-list.component';
 import { AppointmentsService } from './appointments.service';
 import { LoadingSpinnerComponent } from '../ui/loading-spinner/loading-spinner.component';
+import { PendingRequestsComponent } from './pending-requests/pending-requests.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { LoadingSpinnerComponent } from '../ui/loading-spinner/loading-spinner.c
   declarations: [
     AppointmentDetailComponent,
     AppointmentsListComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    PendingRequestsComponent
   ],
   providers:[
     AppointmentsService

@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" [opened]="!isMobile" class="sidebar">
+            <p><button mat-button routerLink="">Dashboard</button></p>
+            <p><button mat-button routerLink="/pending">Pending requests</button></p>
+            <p><button mat-button>Profile</button></p>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-top-nav></app-top-nav>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,8 +1,8 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
+<mat-toolbar class="nav">
+  <mat-toolbar-row >
     <span class="spacer"></span>
-    <button mat-button routerLink="">Home</button>
-    <div *ngIf="auth.user | async; then authenticated else guest"></div>
+    <mat-icon class="nav-item">notifications</mat-icon>
+    <div class="nav-item" *ngIf="auth.user | async; then authenticated else guest"></div>
   </mat-toolbar-row>
 </mat-toolbar>
 <ng-template #authenticated>

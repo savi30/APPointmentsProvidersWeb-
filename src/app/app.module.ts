@@ -13,7 +13,7 @@ import { LoadingSpinnerComponent } from './ui/loading-spinner/loading-spinner.co
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { HomeModule } from './home/home.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { AuthenticationService } from './authentication/authentication.service';
 
 
 @NgModule({
@@ -30,7 +30,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MaterialModule,
     AuthenticationModule,
     HomeModule,
-    DashboardModule,
     AppointmentsModule,
     AppRoutingModule
   ],

@@ -1,3 +1,37 @@
-<p>
-  register works!
-</p>
+<mat-card class="register-card">
+  <mat-card-header>
+    <!--logo and stuff-->
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container">
+      <div>
+        <h3>APPointments</h3>
+      </div>
+      <mat-form-field>
+        <input matInput placeholder="Email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" #password>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </mat-form-field>
+      <!--TODO add password confirmation-->
+       <br/>
+      <!--TODO add terms and conditions-->
+      <div class="terms">
+      <a class="link" href="www.google.com">Terms and Conditions</a>
+      </div>
+        <br/>
+      <button mat-raised-button (click)="auth.registerEmail(email.value, password.value)">Register</button>
+       <br/>
+      <div class="container">
+        <span >Already have an account?</span>
+        <br>
+        <span class="link" routerLink="/auth/login">Log in</span>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="tab-group buttons">
+
+  </mat-card-footer>
+</mat-card>

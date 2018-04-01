@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { TopNavComponent } from '../ui/top-nav/top-nav.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { DashboardComponent } from '../dashboard/dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { MaterialModule } from '../material/material.module';
   ],
   declarations: [
     HomeComponent,
+    DashboardComponent,
     TopNavComponent
   ]
 })

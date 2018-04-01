@@ -4,6 +4,7 @@ import { RouterModule, Routes} from '@angular/router'
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from '../dashboard/dashboard/dashboard.component';
 import { ProfileComponent } from '../users/profile/profile.component';
+import { AppointmentsListComponent } from '../appointments/appointments-list/appointments-list.component';
 
 const homeRoutes:Routes = [
   {
@@ -11,8 +12,14 @@ const homeRoutes:Routes = [
     component:HomeComponent,
     children:[
       {
-        path:'', 
-        component:DashboardComponent
+        path:'dashboard', 
+        component:DashboardComponent,
+        children:[
+          {
+            path:'',
+            component:AppointmentsListComponent
+          }
+        ]
       },
       {
         path:'profile',

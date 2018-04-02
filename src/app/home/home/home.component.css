@@ -29,3 +29,32 @@
     width:12%;
   }
   
+  .icon{
+    padding:0 14px;
+  }
+  .spacer{
+    flex:1 1 auto;
+  }
+  mat-toolbar{
+    width:100%!important;
+  }
+  .circular{
+    border-radius:50%
+  }
+  .thumbnail{
+    position: center;
+    display:block;
+    margin: auto;
+  }
+  
+  .toolbar {
+    border-bottom: 1px solid #E4E4E4;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav .nav-item {
+    color: gray;
+    font-weight: normal;
+    transition: color 0.3s ease;
+  }

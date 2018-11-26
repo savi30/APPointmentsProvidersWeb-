@@ -24,3 +24,10 @@ before_script:
 - ng build
 
 script: karma start config/karma.conf.js --single-run
+
+addons:
+  sonarcloud:
+    organization: savi30-github # the key of the org you chose at step #3
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner

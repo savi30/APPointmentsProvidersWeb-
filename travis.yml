@@ -2,15 +2,13 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-  - '4.2'
+  - '8.12.0'
 
 addons:
-apt:
-  sources:
-    - google-chrome
-  packages:
-    - google-chrome-stable
-    - google-chrome-beta
+  sonarcloud:
+    organization: savi30-github # the key of the org you chose at step #3
+    chrome:
+      stable
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -23,11 +21,18 @@ before_script:
 - npm install
 - ng build
 
-script: karma start config/karma.conf.js --single-run
+cache:
+  npm: true
+  directories:
+    - node_modules
 
-addons:
-  sonarcloud:
-    organization: savi30-github # the key of the org you chose at step #3
 script:
-  # other script steps might be done before running the actual analysis
   - sonar-scanner
+  - ng build --prod
+
+deploy:
+  provider: pages
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: ./dist/
+  on:

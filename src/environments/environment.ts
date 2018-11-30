@@ -7,3 +7,6 @@ export const config = {
   messagingSenderId: '599515404757'
 };
 
+export const environment = {
+  production: false
+}

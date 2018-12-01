@@ -9,16 +9,14 @@ addons:
   sonarcloud:
     organization: savi30-github
 before_script:
-  - yarn global add @angular/cli
+- yarn global add @angular/cli
 before_install:
-  - echo $super_secret_password | gpg --passphrase-fd 0 src/environments/environments.tar.gpg
-  - tar xvf src/environments/environments.tar -C src/environments/
-
+- echo $super_secret_password | gpg --passphrase-fd 0 src/environments/environments.tar.gpg
+- tar xvf src/environments/environments.tar -C src/environments/
 cache:
   yarn: true
   directories:
   - node_modules
-
 script:
 - ng lint
 - ng build --prod --aot
@@ -31,4 +29,4 @@ deploy:
   local-dir: "./dist/providers-v2"
 env:
   global:
-    secure: MjB6WL7a2li1UbrEZJUu1okL1tXLsIIgaSIJFkfQP4pnajPmms78XvORQHV+mjNwmCoI4zov+lMrP8zWB8IPtNa009D+5q3ZCjqFDR6oskv/e+SBvhqEKolTQnlCC7C6wIElSjsQ06zLBn/GWp36CeSZbwt0eKK6YIkrqRrMDjfS2h1yFdD+KVFXqzkmOTsxP54EiiX7DJm69JTOLWInVB/d/GoqxuEjC2kIIXYweNuHpqx1hzX4QPSymmjKv7B6BVIRL7rgaNr9YHu9Z9qT6YTvGz4rwKQPGlpq2GnAw3RBHuONZ6DRChvqpKOA8cTbgenH77C0JvHz71tyCjxWGU98WQ5Em7ynaYikKHfJmYsCZoo1pahZOA/s0/yR25RHegn0SJBfkPIXcHcq5Q0ekOoiXQSQzBeheU7s4XYVQZQqf6YHQGQFCTZdw2fqdfpRbO2lLfDitEuHcL2M0EU/P9DDtxpfs0fQUUDUiIkld0lLjPoaH8ddZrM4K3iTpdsjS8gLoshIpFxgsiJkwwgQzqXihMm+3Ma22UkvmMcu/m71RqlFvITUx4fkmB0ynTJ07R6wRTwxzsqMgYJU1Il0hssKLc3VrrtYRuL0eRROX6w0uT91xIba3Atl9Qp5hR5IUHYQK49e+Jrgm7lZn1nqdmkfsDfkmx6s2wM1bZv0R5s=
+    secure: rQV8Q4NhCovlcrKd/ZIBaFJY533GRcNSYZsJ1LScYrao1PPiWnHFKSuG5OmElQ8O9Pijm24ChuFMz/DXdvEjN97K+4BZXQ1zuEOWNNoQeB82ESfQUWheXUMMY+lp1hdVAlEH6ZsjGqRDgV3+GIIMjiM6iTWf5UmL0nJRjBnJ4ML0XrRWmHGDoXc3DTpTMDyVtwfmXot3BlX7NsI7MWeQHtkHCWQXZC9KaiB7kd9VES4GkppS9vgX3TVaU0M55dzc8HgEP8IzxOOop2PV8yjPGGuXP1PjaKwg3QhfI9v8LazgT8QLgNOb8NjtyGEvAQaoDIXuuEd9d4gnL7G/28Vp3RkTjLkgeCLu5zsT+TDnZQyiqmx5b2khaGjA+ONiXU8UIrjMGWzEwXj452NP8LGAew63JhEQJL0A8FfzIMH9PrbU30uDNmL23ZQzpx+VoZ90TluwrTNnLC+p01uMVCtzql5UBHJA61nxPplZ0EpDOXqIBV96UTh1TaG7aYdU70SOnRIs1KqDewlnU+ir8Uswa9J5Rh7pBzRppuDhOYy9HyxW9TVuh4/m3gby9KazWjnet+xN+FVeZl0RVxLqnYNrQKeDsTKsSO9+1B3bXyCwJ2eLnXALdJ5fOw1XPxp3vlxX3srAa+xxoaRNzhArLNetaj7wqQa4zDFsnuXM331BJlc=

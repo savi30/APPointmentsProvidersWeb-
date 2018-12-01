@@ -10,9 +10,7 @@ addons:
     organization: savi30-github
 before_script:
 - yarn global add @angular/cli
-before_install:
-- echo $env_password | gpg --passphrase-fd 0 src/environments/environments.tar.gpg
-- tar xvf src/environments/environments.tar -C src/environments/
+
 cache:
   yarn: true
   directories:
@@ -27,6 +25,3 @@ deploy:
   github-token: "$GITHUB_TOKEN"
   keep-history: true
   local-dir: "./dist/providers-v2"
-env:
-  global:
-    secure: jq3+mDHOEROnD06pGSDa44knF3fj3gEXY7hXiGLZHjwSMKh1Nn78FdHPFVzQOqec/3xnbRpVXP/LTMidJPkFv1QU7D1G5lHjxsZ/72MgRYU5QYgwJUHTGhCm7qzpLeCqCWuP7EQjAWLR4Rp6Cv6UqVu1FKwbXfIsUBEAuCWJZlk1LR5IZ9y8HL7h5PNpyQ+/z6AtbJqOXAXC8gtFXPfzUoYgHeXlf+E73bs42aSICBosQXDYxInRGK6hceql69MvozFk68Q3QXG8zYdiisRgl6n+1fyhncwVkD7Gka+uNvw1yi0jnqOwZQoqNVReAipb564PcgiC64gSOQwgyrfCkTMUlJwlT3zNQMu785dY+nZNpQfIg0ZCuPJwYFDsFyGvMtVbNLEpmvzIah4JP7EAhIWZEX0icbiRvEWMIhtkfesDX2mDhst4XEV68c4c1pY8cxlWVnXGFBASAtcoMs6Wl6B5RaDCoJCTEm2Ewz6HFkcDhcNLctssALi/16lZhA3WbtczEVOpdE9xQQKPNoWIfrK0s5PLZh37TTH5cKOlGXhLu+97fA55FTZpOE4On5qoNIxssaLwnMFBYfiSkWS8+F8QHC5wx7Qg4Qr7B9SqXxWMGSk1lfXXOlpt+evc0gq1fksF5ISVBQBFtFOIenHdxprvsGLhXK2csttKYELejCs=

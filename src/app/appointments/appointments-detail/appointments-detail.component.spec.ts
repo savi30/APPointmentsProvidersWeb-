@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppointmentsDetailComponent } from './appointments-detail.component';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 
 describe('AppointmentsDetailComponent', () => {
   let component: AppointmentsDetailComponent;

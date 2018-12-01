@@ -9,4 +9,4 @@ export const config = {
 
 export const environment = {
   production: false
-}
+};

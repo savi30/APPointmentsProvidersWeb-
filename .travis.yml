@@ -18,6 +18,7 @@ cache:
   yarn: true
   directories:
   - node_modules
+
 script:
 - ng lint
 - ng build --prod --verbose --aot

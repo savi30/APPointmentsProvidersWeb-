@@ -21,7 +21,7 @@ cache:
 
 script:
 - ng lint
-- ng build --prod --verbose --aot
+- ng build --prod --aot
 - sonar-scanner --debug
 deploy:
   provider: pages

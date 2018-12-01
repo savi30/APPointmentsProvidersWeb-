@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+- 8.12.0
+branches:
+  only:
+  - master
+addons:
+  chrome: stable
+  sonarcloud:
+    organization: savi30-github
+before_script:
+  - yarn global add @angular/cli
+before_install:
+  - echo $super_secret_password | gpg --passphrase-fd 0 src/environments/environments.tar.gpg
+  - tar xvf src/environments/environments.tar -C src/environments/
+
+cache:
+  yarn: true
+  directories:
+  - node_modules
+script:
+- ng lint
+- ng build --prod --verbose --aot
+- sonar-scanner --debug
+deploy:
+  provider: pages
+  skip-cleaup: true
+  github-token: "$GITHUB_TOKEN"
+  keep-history: true
+  local-dir: "./dist/providers-v2"
+env:
+  global:
+    secure: MjB6WL7a2li1UbrEZJUu1okL1tXLsIIgaSIJFkfQP4pnajPmms78XvORQHV+mjNwmCoI4zov+lMrP8zWB8IPtNa009D+5q3ZCjqFDR6oskv/e+SBvhqEKolTQnlCC7C6wIElSjsQ06zLBn/GWp36CeSZbwt0eKK6YIkrqRrMDjfS2h1yFdD+KVFXqzkmOTsxP54EiiX7DJm69JTOLWInVB/d/GoqxuEjC2kIIXYweNuHpqx1hzX4QPSymmjKv7B6BVIRL7rgaNr9YHu9Z9qT6YTvGz4rwKQPGlpq2GnAw3RBHuONZ6DRChvqpKOA8cTbgenH77C0JvHz71tyCjxWGU98WQ5Em7ynaYikKHfJmYsCZoo1pahZOA/s0/yR25RHegn0SJBfkPIXcHcq5Q0ekOoiXQSQzBeheU7s4XYVQZQqf6YHQGQFCTZdw2fqdfpRbO2lLfDitEuHcL2M0EU/P9DDtxpfs0fQUUDUiIkld0lLjPoaH8ddZrM4K3iTpdsjS8gLoshIpFxgsiJkwwgQzqXihMm+3Ma22UkvmMcu/m71RqlFvITUx4fkmB0ynTJ07R6wRTwxzsqMgYJU1Il0hssKLc3VrrtYRuL0eRROX6w0uT91xIba3Atl9Qp5hR5IUHYQK49e+Jrgm7lZn1nqdmkfsDfkmx6s2wM1bZv0R5s=

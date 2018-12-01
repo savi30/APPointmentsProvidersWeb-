@@ -11,7 +11,7 @@ addons:
 before_script:
 - yarn global add @angular/cli
 before_install:
-- echo $super_secret_password | gpg --passphrase-fd 0 src/environments/environments.tar.gpg
+- echo $super_secret_password | gpg --passphrase-fd src/environments/environments.tar.gpg
 - tar xvf src/environments/environments.tar -C src/environments/
 cache:
   yarn: true

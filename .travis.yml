@@ -12,8 +12,8 @@ before_script:
 - yarn global add @angular/cli
 before_install:
 - openssl aes-256-cbc -K $encrypted_67f726b81dce_key -iv $encrypted_67f726b81dce_iv
-  -in src/environments/environments.tar.enc -out environments.tar -d
-- mv environments.tar src/environments && tar xvf src/environments/environments.tar
+  -in src/environments/environments.tar.enc -out src/environments/environments.tar -d
+- tar xvf src/environments/environments.tar
 cache:
   yarn: true
   directories:

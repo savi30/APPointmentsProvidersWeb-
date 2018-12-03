@@ -1,0 +1,55 @@
+<div class="row text-center">
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        (viewDateChange)="viewDateChange.next(viewDate)"
+        [(viewDate)]="viewDate"
+        [view]="view"
+        class="btn btn-primary"
+        mwlCalendarPreviousView>
+        Previous
+      </div>
+      <div
+        (viewDateChange)="viewDateChange.next(viewDate)"
+        [(viewDate)]="viewDate"
+        class="btn btn-outline-secondary"
+        mwlCalendarToday>
+        Today
+      </div>
+      <div
+        (viewDateChange)="viewDateChange.next(viewDate)"
+        [(viewDate)]="viewDate"
+        [view]="view"
+        class="btn btn-primary"
+        mwlCalendarNextView>
+        Next
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
+  </div>
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        (click)="viewChange.emit('month')"
+        [class.active]="view === 'month'"
+        class="btn btn-primary">
+        Month
+      </div>
+      <div
+        (click)="viewChange.emit('week')"
+        [class.active]="view === 'week'"
+        class="btn btn-primary">
+        Week
+      </div>
+      <div
+        (click)="viewChange.emit('day')"
+        [class.active]="view === 'day'"
+        class="btn btn-primary">
+        Day
+      </div>
+    </div>
+  </div>
+</div>
+<br>

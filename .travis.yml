@@ -29,5 +29,8 @@ script:
 before_deploy:
   rm -rf .scannerwork/
 deploy:
-  provider: firebase
-  token: "$FIREBASE_TOKEN" 
+  provider: pages
+  skip-cleaup: true
+  github-token: "$GITHUB_TOKEN"
+  keep-history: true
+  local-dir: "./dist"

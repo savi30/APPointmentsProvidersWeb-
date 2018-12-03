@@ -12,7 +12,7 @@ addons:
       secure: dM/GFoRVVo0456quGxwiXgGACu1FUJFw4Q9Zp2WqrjnsOprVa28GP32VA4mYiDQS7kGJxeT7pw8DFQ4Xa/E7tGnDXHEKytXAPTmEWjCxSzgvkXqlA1ZKRc9ITaDRGqV5Yogd7Z/TUtcViIqQQrolX1LLukoshf9VCOw8zuLJ/cI0AReOlZWoNoOXqL4QV00doUI0WncyjnXacH1bjrKtG/1Msyo5d/cKq3dAFV2egazO/Pn5TvDdBdjCxPm3xNI1TiW1FTx6jEl2QnKcB9HTlY7SD0oynAXPqAKbMSrVjoUxcvgA1YCInG6+YAwnFhS53k6pQiVMIPqffepBHgV0KsqzpJoIsaAukHhzreO6t54oEqUtL3eiPFUvCWD2TnRqJSZF9qOsf5A5oCmO8LGr25RZC0CqGqE6bDxLqDCFi1PkZQ9eyQaZvAX8PTQKgXoeIBRXGnOEX5u28gtD8327hs3JL++8MVKeAfXmy4Ycc08v4AxV19xeMWc9Pwq2R3uxBWWoEoXSYyhyFRU7wqspc5EdN73tdRj2H7d67eLvme0I+xDzIIFK7uGnODIc8Is96ARVpFJKrxsFCK5mfjuYCIhpXSRC6ANUuKt9WhjNsxCdggHw5RnpknZSsXUNzw59L020fqk9Ex0Dd9vLUu5hhJSIfG/SLdZoDPXN93ELBSY=
 
 before_script:
-- yarb global add firebase-tools
+- yarn global add firebase-tools
 - yarn global add @angular/cli
 before_install:
 - openssl aes-256-cbc -K $encrypted_7fea5b4ae60a_key -iv $encrypted_7fea5b4ae60a_iv
@@ -28,9 +28,5 @@ script:
 - sonar-scanner
 before_deploy:
   rm -rf .scannerwork/
-deploy:
-  provider: pages
-  skip-cleaup: true
-  github-token: "$GITHUB_TOKEN"
-  keep-history: true
-  local-dir: "./dist"
+after_success:
+  - firebase deploy -project "appointment-f6c22" -token "$FIREBASE_TOKEN"

@@ -41,3 +41,6 @@ Thumbs.db
 environment.ts
 environment.prod.ts
 environments.tar
+
+.firebase/
+*.cache

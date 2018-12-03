@@ -13,8 +13,8 @@ before_script:
 before_install:
 - mkdir src/environments
 - openssl aes-256-cbc -K $encrypted_7fea5b4ae60a_key -iv $encrypted_7fea5b4ae60a_iv
-  -in environments.tar.enc -out src/environments/environments.tar -d
-- tar xvf src/environments/environments.tar
+  -in environments.tar.enc -out environments.tar -d
+- mv environments.tar src/environments/ tar xvf src/environments/environments.tar
 cache:
   yarn: true
   directories:
